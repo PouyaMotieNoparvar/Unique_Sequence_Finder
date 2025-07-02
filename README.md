@@ -130,4 +130,4 @@ If you use this pipeline, please cite the minimap2 and Biopython papers, and thi
 ---
 
 ## License
-MIT License (or specify your own) 
+MIT License
