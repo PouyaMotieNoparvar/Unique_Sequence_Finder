@@ -125,6 +125,7 @@ A: Change the `200 500` arguments in the filtering step to your desired range.
 
 ## Citation
 If you use this pipeline, please cite the minimap2 and Biopython papers, and this repository.
+- **[https://github.com/PouyaMotieNoparvar/Unique_Sequence_Finder]**
 
 ---
 
