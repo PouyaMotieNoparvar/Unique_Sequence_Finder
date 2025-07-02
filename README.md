@@ -1,12 +1,12 @@
-# Spinach Chromosome-Specific Unique Sequence Extraction Pipeline
+# Chromosome/species-Specific Unique Sequence Extraction Pipeline
 
-This pipeline extracts unique, chromosome-specific DNA segments of 200–500 bp from a spinach genome FASTA file. These segments are ideal for designing PCR markers that are specific to individual chromosomes.
+This pipeline extracts unique, chromosome or species-specific DNA segments of 200–500 bp from a FASTA file containing the sequences for chromosomes or various genomic sequences of different species. These segments are ideal for designing PCR markers that are specific to individual chromosomes or species.
 
 ## Overview
 
 The pipeline:
-1. Splits the genome into separate chromosome files.
-2. For each chromosome, aligns it against the rest of the genome to find unique (non-aligned) regions using minimap2.
+1. Splits the genome into separate chromosome files (if your goal is to design species specific primers you can skip this step but the fasta file for species should be a single chromosom file then put the species genomic sequence fasta files in a folder, name the folder "chromosomes". 
+2. For each chromosome/organism, aligns it against the rest of the genome to find unique (non-aligned) regions using minimap2.
 3. Extracts these unique regions.
 4. Filters the unique regions to keep only those between 200–500 bp.
 
@@ -36,7 +36,7 @@ pip install -r requirements.txt
 
 ## File Descriptions
 
-- **split_fasta_by_chromosome.py**: Splits the genome FASTA into one file per chromosome.
+- **split_fasta_by_chromosome.py**: Splits the genome FASTA into one file per chromosome OR put the species single chromosom genome sequences in the "chromosomes" folder.
 - **align_and_extract_unique.sh**: Main pipeline script. For each chromosome, aligns it to the rest of the genome, extracts unique regions, and saves them as BED files.
 - **extract_unique_regions_from_paf.py**: Parses minimap2 output to find unique (non-aligned) regions.
 - **filter_by_length.py**: Filters BED regions to keep only those between 200–500 bp.
